@@ -1,0 +1,21 @@
+public String nameFromEmail(String email) {
+    //code here
+    Integer indexOfAt = email.indexOf('@');
+    String userName = email.substring(0, indexOfAt);
+
+    //to lower cases
+    userName = userName.toLowerCase();
+    List<String> lst = userName.split('[.]');
+
+    //Full Name
+    String fullName;
+    for (Integer i=0; i < lst.size(); i++) {
+        if (i ==0) {
+            fullName = lst[i].capitalize();
+        } else {
+            fullName += ' ' + lst[i].capitalize();
+        }
+    }
+
+    return fullName;
+}

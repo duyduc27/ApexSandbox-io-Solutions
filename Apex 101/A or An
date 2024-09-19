@@ -1,0 +1,18 @@
+public String aOrAn(String word) {
+        //code here
+        List<String> vowelList = new List<String>();
+        vowelList.add('a');
+        vowelList.add('e');
+        vowelList.add('i');
+        vowelList.add('o');
+        vowelList.add('u');
+    
+        String firstCharacter = word.substring(0,1);
+        if (vowelList.contains(firstCharacter)) {
+            String fullWord = 'an ' + word;
+            return  fullWord;
+        } else {
+            String fullWord = 'a ' + word;
+            return fullWord;
+        }
+    }

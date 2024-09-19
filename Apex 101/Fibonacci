@@ -1,0 +1,18 @@
+public Integer fibonacci(Integer n) {
+    //code here
+    Integer calculatedValue;
+    if (n == 1 || n == 2){
+        calculatedValue = 1;
+    } else {
+        Integer oldValue = 1;
+        Integer newValue = 1;
+
+        for (Integer i =2; i < n; i++) {
+            calculatedValue = oldValue + newValue;
+            oldValue = newValue;
+            newValue = calculatedValue;
+        }
+    }
+
+    return calculatedValue;
+}

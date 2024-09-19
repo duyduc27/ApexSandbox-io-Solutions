@@ -1,0 +1,42 @@
+public Integer nextPrime(Integer num) {
+    //code here
+    Integer nextPrime;
+
+    if (num < 2) {
+        nextPrime = 2;
+         return nextPrime;
+    } else {
+        for (Integer i = (num + 1); i <  (2 * num); i++) {
+            Boolean result = isPrime(i);
+            if (result) {
+                nextPrime = i;
+                break;
+            }
+    }
+    }
+
+
+    
+    
+    return nextPrime;
+    
+}
+
+
+public Boolean isPrime(Integer num) {
+    //code here
+    if (num == 1 || num ==2) {
+        return true;
+    } else if( Math.mod(num,2) != 0 ){
+        for (Integer i= 3; i< num ; i++) {
+            if(Math.mod(num,i) ==0 ){
+                
+                return false;
+            }
+        }
+    } else {
+        return false;
+    }
+    
+    return true;
+}

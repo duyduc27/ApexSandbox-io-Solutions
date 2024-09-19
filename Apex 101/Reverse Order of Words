@@ -1,0 +1,21 @@
+public String reverseWordsInASentence(String sentence){
+    //your flawless code here
+    String result;
+
+    if (sentence != null){
+        List<String> lst = sentence.split(' ');
+
+        for(Integer i=lst.size() -1; i >= 0; i--){
+            if (i== (lst.size() -1)) {
+            result = lst[i];
+            } else {
+            result += ' ' + lst[i];
+            }
+            }
+        return result;
+    } else {
+        result = null;
+        return result;
+    }
+
+}

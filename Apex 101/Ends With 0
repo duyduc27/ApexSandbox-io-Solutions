@@ -1,0 +1,12 @@
+public Boolean isEndWithZero(Integer num){
+     //code here
+    String str = String.valueOf(num);
+    String lastNum_str = str.substring(str.length() - 1);
+    Integer lastNum_int = Integer.valueOf(lastNum_str);
+
+    if (lastNum_int == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}

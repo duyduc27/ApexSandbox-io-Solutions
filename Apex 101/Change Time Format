@@ -1,0 +1,27 @@
+public String changeTimeFormat(String strTime) {
+    //code here
+    List<String> lst = strTime.split('[:]');
+    Integer hour = Integer.valueOf(lst[0]);
+    
+    if (hour ==  12) {
+        String formattedTime = strTime + ' PM';
+        return formattedTime;
+    } else if (hour == 0) {
+        String formattedTime = '12:' + lst[1]  + ' AM';
+        return formattedTime;
+    } else if (hour < 12) {
+        String formattedTime = strTime + ' AM';
+        return formattedTime;
+    } else {
+
+        if ( (hour -12) > 9) {
+            String calculatedHour = String.valueOf(hour -12);
+            String formattedTime = calculatedHour + ':' + lst[1] + ' PM';
+            return formattedTime;
+        } else {
+            String calculatedHour = '0' + String.valueOf(hour -12);
+            String formattedTime = calculatedHour + ':' + lst[1] + ' PM';
+            return formattedTime;
+        }
+    }
+}
