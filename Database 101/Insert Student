@@ -1,0 +1,10 @@
+public Id insertStudent(String name, String email) {
+    // code here
+
+    // Create the student sObject
+    apxio__Student__c student = new apxio__Student__c(Name= name, apxio__Email__c = email);
+    // Insert the student by using DML
+    insert student;
+    ID studentID = student.Id;
+    return studentID;
+}

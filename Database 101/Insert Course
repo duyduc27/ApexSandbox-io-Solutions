@@ -1,0 +1,26 @@
+public Id insertCourse(String name, String details, Integer credits) {
+    // code here
+    // List<Integer> validCreditList = new List<Integer>();
+    // validCreditList.add(1);
+    // validCreditList.add(2);
+    // validCreditList.add(3);
+    // validCreditList.add(4);
+
+    List<Integer> validCreditList = new List<Integer>{1 ,2 ,3 , 4 };
+
+    if (validCreditList.contains(credits) ) {
+        // Convert integer credit to string type due to picklist values are always string
+        String stringCredits = String.valueOf(credits);
+
+        // Create the student sObject
+        apxio__Course__c course = new apxio__Course__c(Name = name, apxio__Course_Details__c = details, apxio__Credits__c = stringCredits);
+        // Insert the course by using DML
+        insert course;
+        ID courseID = course.ID;
+
+        return courseID;
+    } else {
+        return null;
+    }
+
+}
