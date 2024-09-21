@@ -70,3 +70,42 @@ Given the following test code:
 `accounts.add(new Account(name ='Microsoft'));`
 
 The method call`checkAccounts(accounts);`  should fail, throwing an  `AccountException`.
+
+### Safe Navigation Operator
+https://www.apexsandbox.io/problem/94
+
+Implement the method  `getAccountBillingCityWithSafeNavigation`, which accepts a list of accounts as an input and returns the  `BillingCity`  in upper case of the  **first**  account in the list. Use the Safe Navigation (?.) to ensure  `null`  is returned in case the  `BillingCity`  is null.
+
+Given the following test code:
+
+`List<Account> acts = new ListList<Account>();`
+
+`acts.add(new Account(Name = 'Acme', BillingCity = 'Chicago'));`
+
+`acts.add(new Account(Name = 'Dove', BillingCity = 'Boston'));`
+
+`String result = getAccountBillingCityWithSafeNavigation(acts);`
+
+`result`  should be  `'CHICAGO'`
+
+### Dynamic Field Values
+https://www.apexsandbox.io/problem/103
+
+Implement the method  `getFieldsValue`, which accepts the following inputs:
+
+-   An account  `acc`
+-   A list of strings  `fields`, with each string in the list representing a valid field on the account object.
+
+The method should return a list of values from the account record for fields listed in the list  `fields`  in the correct order.
+
+Given the following test code:
+```
+Account acc = new Account(
+    Name = 'Salesforce', 
+    BillingCity = 'Boston', 
+    AnnualRevenue=10000, Rating='Hot');
+List fields = new List{'Industry','Name','Rating'};
+List result = getFieldsValue(acc, fields);
+```
+
+`result`  should be  `[null, 'Salesforce', 'Hot']`

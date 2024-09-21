@@ -1,0 +1,9 @@
+public String getAccountBillingCityWithSafeNavigation(List<Account> accounts){
+   // Code here
+   Account acc = accounts[0];
+   // Use Safe Navigation Operator "?." . 
+   // Usage: First, it evaluates the left-hand-side of expression, if it is null then return null, else evaluate with the method at the right hand side
+   // All Apex types are implicitly nullable and can hold a null value returned from the operator.
+   String billingCity = acc.BillingCity?.toUpperCase();
+   return billingCity;
+}
