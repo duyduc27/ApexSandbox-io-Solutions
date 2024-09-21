@@ -1,0 +1,15 @@
+public String divide(Integer a, Integer b){
+    //code here
+    if (b==0){
+        return 'Divide by 0';
+    } else {
+        try {
+            Integer resultInt = a/b;
+            String resultStr =  String.valueof(resultInt);
+            return resultStr;
+        } catch (NullPointerException e) {
+            String exMessage = e.getMessage();
+            return exMessage;
+        }
+    }
+}

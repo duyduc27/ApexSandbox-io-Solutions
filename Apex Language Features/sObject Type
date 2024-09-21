@@ -1,0 +1,10 @@
+public Boolean isTypeAccount(sObject record)
+{
+    // code here
+    // If you need to verify at run time whether an object is actually an instance of a particular class, use the instanceof keyword.
+    if (record instanceof Account){
+        return true;
+    } else {
+        return false;
+    }
+}    
