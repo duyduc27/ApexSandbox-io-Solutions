@@ -1,0 +1,46 @@
+public List<Account> getAccounts(List<Account> accounts) {
+    // Returns a new list of accounts sorted in descending order based on the AnnualRevenue field.
+    List<AccountWrapper> wrapperList = new List<AccountWrapper>();
+    
+    if (accounts != null) {
+        // Wrap each Account in AccountWrapper
+        for (Account acc : accounts) {
+            wrapperList.add(new AccountWrapper(acc));
+        }
+
+        // Sort the wrapperList by AnnualRevenue in descending order
+        wrapperList.sort();
+
+        // Extract the sorted Accounts
+        List<Account> sortedList = new List<Account>();
+        for (AccountWrapper wrapper : wrapperList) {
+            sortedList.add(wrapper.acc);
+        }
+
+        return sortedList;
+    } else {
+        return null;
+    }
+}
+
+// Wrapper class
+public class AccountWrapper implements Comparable {
+    public Account acc { get; set; }
+
+    // Constructor to initialize the wrapper with the Account object
+    public AccountWrapper(Account acc) {
+        this.acc = acc;
+    }
+
+    // Implement the compareTo method for sorting by AnnualRevenue in descending order
+    public Integer compareTo(Object obj) {
+        AccountWrapper other = (AccountWrapper) obj;
+        
+        // Handle null values of AnnualRevenue (consider nulls as smallest)
+        if (this.acc.AnnualRevenue == null) return 1;
+        if (other.acc.AnnualRevenue == null) return -1;
+
+        // Sort in descending order by using subtraction
+        return (other.acc.AnnualRevenue - this.acc.AnnualRevenue).intValue();
+    }
+}

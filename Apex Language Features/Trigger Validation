@@ -1,0 +1,11 @@
+public void validateInsert(List<Opportunity> opportunities){
+    //code here
+    for (Opportunity opp: opportunities) {
+        String stageValue = (String) opp.get('StageName');
+        String description = (String) opp.get('Description');
+
+        if ( stageValue ==  'Closed Won' && String.isBlank(description) ){
+            opp.addError('Description should not be empty for Closed Won opportunity.');
+        }
+    }
+}
