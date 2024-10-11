@@ -1,0 +1,18 @@
+public Boolean isKeyAccount(Account a) {
+    //code here
+    List<String> keyIndustriesList = new List<String>{'Banking', 'Technology', 'Retail'};
+
+    if (String.isBlank(a.Industry)){
+        return false;
+    } else if ( a.Industry == 'Banking' && a.AnnualRevenue >= 600000){
+        return true;
+    } else if ( a.Industry == 'Technology' && a.AnnualRevenue >= 800000){
+        return true;
+    } else if ( a.Industry == 'Retail' && a.AnnualRevenue >= 2000000){
+        return true;
+    } else if (!keyIndustriesList.contains(a.Industry) && a.AnnualRevenue >= 500000 ) { 
+        return true;
+    } else {
+        return false;
+    }
+}

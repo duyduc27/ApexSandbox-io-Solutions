@@ -1,0 +1,14 @@
+public Boolean isBirthday(Contact c) {
+    //code here
+    Integer birthdayMonth = c.Birthdate.month();
+    Integer birthdayDay = c.Birthdate.day();
+
+    Integer monthNow = Date.today().month();
+    Integer dayNow = Date.today().day();
+
+    if(birthdayMonth == monthNow && birthdayDay == dayNow){
+        return true;
+    } else {
+        return false;
+    }
+}
