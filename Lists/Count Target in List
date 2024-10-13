@@ -1,0 +1,14 @@
+public Integer findTargetCount(List<Integer> nums, Integer target) {
+    // code here
+    Integer cnt = 0;
+    if (nums.contains(target)){
+        for(Integer num : nums){
+            if (num == target){
+                cnt += 1;
+            }
+        }
+        return cnt;
+    } else {
+        return cnt;
+    }
+}
