@@ -87,3 +87,81 @@ Given the following test code:
 `escalateIfMeetsCriteria(c);`
 
 The expression  `c.IsEscalated`  should evaluate to true because the case meets the criteria for escalations.
+
+### Same Parent
+https://www.apexsandbox.io/problem/63
+
+Implement the method  `sameParent`  that takes as input an opportunity  `opp`  and a contact  `c`, and returns true if both the opportunity and contact have the same parent account.
+
+Given the following test code:
+
+`Contact con = new Contact(AccountId = '0018c00002CQU9EAAX');`
+
+`Opportunity opp = new Opportunity(AccountId = '0018c00002CQU9EAAX');`
+
+The method call  `sameParent(con, opp)`  returns true because both the contact and the opportunity have the same parent account.
+
+### Same Parent II
+https://www.apexsandbox.io/problem/64
+
+Implement the method  `sameParent`  that takes as input an account  `acc`, a contact  `con`, and an opportunity  `opp`  and returns true if both the opportunity and contact have the given account as the parent.
+
+Given the following test code:
+
+`Account acc = new Account(Id = '0018c00002CQU9EAAX');`
+
+`Contact con = new Contact(AccountId = acc.Id);`
+
+`Opportunity opp = new Opportunity(AccountId = acc.Id);`
+
+The method call  `sameParent(acc, con, opp)`  returns true because both the contact and the opportunity have the same parent account.
+
+### Set Parent Account
+https://www.apexsandbox.io/problem/66
+
+Implement the method  `setParent`  that takes as input an account  `acc`, a contact  `con`, and an opportunity  `opp`  and sets the account is the parent for both the opportunity and contact. Make sure to not take any action if the provided account or its Id is null.
+
+Given the following test code:
+
+`Account acc = new Account(Id = '0018c00002CQU9EAAX');`
+
+`Contact con = new Contact(LastName = 'Smith');`
+
+`Opportunity opp = new Opportunity(Name = 'Coding Bootcamp');`
+
+`setParent(acc, con, opp);`
+
+The expression  `opp.AccountId == '0018c00002CQU9EAAX' && con.AccountId == '0018c00002CQU9EAAX'`  returns true because both the contact and the opportunity now have  `acc`  as the parent account.
+
+### Set Parent Case
+https://www.apexsandbox.io/problem/67
+
+Implement the method  `linkParent`  that takes as input two cases  `c1`  and  `c2`, and sets the case created first as the parent of the case created later  _only if_  both cases look up to the same Contact. Ensure to handle the special case where the cases do not have any related contacts.
+
+Given the following two cases:
+
+`**c1**`
+
+`Id: '5008c00001GHfeUAAT'`
+
+`CreatedDate: 2022-01-17 05:15pm GMT`
+
+`ContactId: '0035f00000A4REqAAN'`
+
+`Subject: 'Not able to log in'`
+
+`**c2**`
+
+`Id: '5008c00001GHfeoAAD'`
+
+`CreatedDate: 2022-01-19 2:34pm GMT`
+
+`ContactId: '0035f00000A4REqAAN'`
+
+`Subject: 'User not created in system of record'`
+
+and given the following test code:
+
+`linkParent(c1, c2);`
+
+The case  `c1`  should be set as the parent of case  `c2`  since they are both related to the same Contact and  `c2`  was created after  `c1`.
