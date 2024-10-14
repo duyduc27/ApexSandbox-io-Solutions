@@ -1,0 +1,9 @@
+public List<Integer> evenNumbers(Integer n) {
+    //code here
+    List<Integer> result = new List<Integer>();
+    for (Integer i= 1; i <= n; i++){
+        Integer num = 2*i;
+        result.add(num);
+    }
+    return result;
+}

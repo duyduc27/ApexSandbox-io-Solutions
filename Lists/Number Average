@@ -1,0 +1,15 @@
+public Decimal average(List<Decimal> numbers){
+    // your code here
+    if (numbers.isEmpty()){
+        return 0;
+    }
+
+    Decimal averageNum = 0;
+
+    for (Decimal num : numbers){
+        averageNum += num;
+    }
+
+    averageNum = averageNum / numbers.size();
+    return  averageNum.setscale(2);
+}
